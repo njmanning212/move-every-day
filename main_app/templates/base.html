@@ -22,7 +22,7 @@
 <body>
   <header>
     <div class="header-logo-container">
-      <a href="/">
+      <a href="{% url 'home' %}">
         <img 
           src=""
           alt="The Move Every Day Logo"
@@ -31,7 +31,15 @@
     </div>
     <nav>
       <ul>
-        <li><a href="/programs">My Programs</a></li>
+        {% if user.is_authenticated %}
+          <li><a href="">My Programs</a></li>
+          <li><a href="">All Exercises</a></li>
+          <li><a href="">Add Exercise</a></li>
+          <li><a href="">Logout</a></li>
+        {% else %}
+          <li><a href="">Sign Up</a></li>
+          <li><a href="{% url 'home' %}">Login</a></li>
+        {% endif %}
       </ul>
     </nav>
   </header>

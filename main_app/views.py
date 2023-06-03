@@ -1,8 +1,7 @@
 from django.shortcuts import render
-
-from django.http import HttpResponse
+from django.contrib.auth.views import LoginView
 
 # Create your views here.
 
-def home(request):
-  return render(request, 'home.html')
+class Home(LoginView):
+  template_name = 'home.html'
