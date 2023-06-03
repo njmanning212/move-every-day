@@ -35,7 +35,7 @@
           <li><a href="">My Programs</a></li>
           <li><a href="">All Exercises</a></li>
           <li><a href="">Add Exercise</a></li>
-          <li><a href="">Logout</a></li>
+          <li><a href="{% url 'logout' %}">Log out</a></li>
         {% else %}
           <li><a href="">Sign Up</a></li>
           <li><a href="{% url 'home' %}">Login</a></li>
