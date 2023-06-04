@@ -5,18 +5,54 @@
 <link 
   rel="stylesheet"
   type="text/css" 
-  href="">
+  href="{% static 'css/exercises/details.css' %}">
 {% endblock %}
 
 {% block content %}
-<div>
-  <h1>Details for {{exercise.name}}</h1>
-  <p>Exercise: {{exercise.name}}</p>
-  <p>Category: {{exercise.get_category_display}}</p>
+<div class="exercise-container">
+  <h1>{{exercise.name}}</h1>
+  <a href="{{exercise.url}}">
+    <img class="video" src="{% static 'images/blank_video_thumbnail.svg' %}" alt="">
+  </a>
+  <div class="category">
+    <p>Category: {{exercise.get_category_display}}</p>
+  </div>
+  <div class="details">
+    <div class="detail-card">
+      <p class="detail-info">{{exercise.tempo}}</p>
+      <p class="label">Tempo</p>
+    </div>
+    <div class="detail-card">
+      <p class="detail-info">{{exercise.repetitions}}</p>
+      <p class="label">Repetitions</p>
+    </div>
+    <div class="detail-card">
+      <p class="detail-info">{{exercise.rest}}</p>
+      <p class="label">Rest</p>
+    </div>
+    <div class="detail-card">
+      <p class="detail-info">{{exercise.resistance}}</p>
+      <p class="label">Resistance</p>
+    </div>
+    <div class="detail-card">
+      <p class="detail-info">{{exercise.sets}}</p>
+      <p class="label">Sets</p>
+    </div>
+    <div class="detail-card">
+      <p class="detail-info">{{exercise.fatigue_level}}</p>
+      <p class="label">Fatigue Level</p>
+    </div>
+  </div>
+  <div class="instructions">
+    <p class="label">Additional Instructions</p>
+    <p>{{exercise.instructions}}</p>
+  </div>
+  <div class="buttons">
+    {% if object.owner == request.user %}
+      <a class="btn submit" href="{% url 'exercise-update' exercise.id %}">✏️ Edit</a>
+      <a class="btn delete" href="{% url 'exercise-delete' exercise.id %}">❌ Delete</a>
+    {% endif %}
+  </div>
 </div>
 
-{% if object.owner == request.user %}
-  <a href="{% url 'exercise-update' exercise.id %}">Edit</a>
-  <a href="{% url 'exercise-delete' exercise.id %}">Delete</a>
-{% endif %}
 {% endblock %}

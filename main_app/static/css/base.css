@@ -21,6 +21,9 @@ body {
     'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 
     'Helvetica Neue', sans-serif;
   min-height: 100vh;
-  background-color: black;
-  color: white
+  background-color: var(--dark-blue);
+  color: white;
+  --dark-blue: rgba(5, 70, 102, 1);
+  --blue: rgba(1, 201, 255, 1);
+  --light-blue: rgba(228, 238, 244, 1);
 }
