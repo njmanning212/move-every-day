@@ -27,3 +27,47 @@ body {
   --blue: rgba(1, 201, 255, 1);
   --light-blue: rgba(228, 238, 244, 1);
 }
+
+.logo {
+  width: 50px;
+}
+
+header, nav {
+  width: 100%;
+}
+
+nav {
+  border-bottom: solid 5px var(--blue);
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  list-style: none;
+  margin: 10px;
+  padding: 0;
+}
+
+.link > li > a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0 10px;
+  text-align: center;
+}
+
+.link > li > a:hover {
+  color: var(--blue);
+}
+
+.logout {
+  margin-left: auto;
+}
+
+main {
+  margin-top: 10px;
+}
+

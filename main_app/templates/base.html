@@ -21,24 +21,43 @@
 </head>
 <body>
   <header>
-    <div class="header-logo-container">
-      <a href="{% url 'home' %}">
-        <img 
-          src=""
-          alt="The Move Every Day Logo"
-        >
-      </a>
-    </div>
     <nav>
-      <ul class="menu">
+      <ul class="nav-links">
         {% if user.is_authenticated %}
-          <li><a href="">My Programs</a></li>
+        <div class="link">
+          <a href="{% url 'home' %}">
+            <img 
+              src="{% static 'images/med_logo.png' %}"
+              alt="The Move Every Day Logo"
+              class="logo"
+            >
+          </a>
+        </div>
+        <div class="link">
           <li><a href="{% url 'exercise-index' %}">All Exercises</a></li>
+        </div>
+        <div class="link">
           <li><a href="{% url 'exercise-create' %}">Add Exercise</a></li>
+        </div>
+        <div class="link logout">
           <li><a href="{% url 'logout' %}">Log out</a></li>
+        </div>
         {% else %}
+        <div class="link">
+          <a href="{% url 'home' %}">
+            <img 
+              src="{% static 'images/med_logo.png' %}"
+              alt="The Move Every Day Logo"
+              class="logo"
+            >
+          </a>
+        </div>
+        <div class="link logout">          
           <li><a href="{% url 'signup' %}">Sign Up</a></li>
-          <li><a href="{% url 'home' %}">Login</a></li>
+        </div>
+        <div class="link logout">          
+          <li><a href="{% url 'home' %}">Log In</a></li>
+        </div>
         {% endif %}
       </ul>
     </nav>
