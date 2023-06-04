@@ -13,7 +13,9 @@
 <h1>Exercise List </h1>
 
 {% for exercise in exercises %}
-  <h2>{{exercise.name}}</h2>
+  <a href="{% url 'exercise-detail' exercise.id %}">
+    <h2>{{exercise.name}}</h2>
+  </a>
 {% endfor %}
 
 {% endblock %}

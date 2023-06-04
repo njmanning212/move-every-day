@@ -43,3 +43,14 @@ class ExerciseDetail(DetailView):
 def exercise_index(request):
   exercises = Exercise.objects.all()
   return render(request, 'exercise/index.html', { 'exercises': exercises })
+
+class ExerciseUpdate(UpdateView):
+  model = Exercise
+  fields = ['name', 'url', 'tempo', 'repetitions', 'rest', 'resistance', 'sets', 'fatigue_level', 'instructions', 'category']
+
+  def get_success_url(self):
+    return reverse('exercise-detail', kwargs={'pk': self.object.pk})
+
+class ExerciseDelete(DeleteView):
+  model = Exercise
+  success_url = '/exercises/'

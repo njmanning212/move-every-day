@@ -14,4 +14,7 @@
   <p>Exercise: {{exercise.name}}</p>
   <p>Category: {{exercise.get_category_display}}</p>
 </div>
+
+<a href="{% url 'exercise-update' exercise.id %}">Edit</a>
+<a href="{% url 'exercise-delete' exercise.id %}">Delete</a>
 {% endblock %}
