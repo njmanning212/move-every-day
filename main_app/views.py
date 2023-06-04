@@ -36,9 +36,10 @@ class ExerciseCreate(CreateView):
   
   def get_success_url(self):
     return reverse('exercise-detail', kwargs={'pk': self.object.pk})
-  
+
 class ExerciseDetail(DetailView):
   model = Exercise
 
-class ExerciseList(ListView):
-  model = Exercise
+def exercise_index(request):
+  exercises = Exercise.objects.all()
+  return render(request, 'exercise/index.html', { 'exercises': exercises })
