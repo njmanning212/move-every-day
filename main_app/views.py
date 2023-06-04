@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
@@ -29,3 +29,16 @@ def signup(request):
 class ExerciseCreate(CreateView):
   model = Exercise
   fields = ['name', 'url', 'tempo', 'repetitions', 'rest', 'resistance', 'sets', 'fatigue_level', 'instructions', 'category']
+
+  def form_valid(self, form):
+    form.instance.owner = self.request.user
+    return super().form_valid(form)
+  
+  def get_success_url(self):
+    return reverse('exercise-detail', kwargs={'pk': self.object.pk})
+  
+class ExerciseDetail(DetailView):
+  model = Exercise
+
+class ExerciseList(ListView):
+  model = Exercise

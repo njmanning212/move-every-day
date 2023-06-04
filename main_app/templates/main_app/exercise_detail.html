@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link 
+  rel="stylesheet"
+  type="text/css" 
+  href="">
+{% endblock %}
+
+{% block content %}
+<div>
+  <h1>Details for {{exercise.name}}</h1>
+  <p>Exercise: {{exercise.name}}</p>
+  <p>Category: {{exercise.get_category_display}}</p>
+</div>
+{% endblock %}

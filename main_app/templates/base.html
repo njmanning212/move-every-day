@@ -34,7 +34,7 @@
         {% if user.is_authenticated %}
           <li><a href="">My Programs</a></li>
           <li><a href="">All Exercises</a></li>
-          <li><a href="{% url 'exercises-create' %}">Add Exercise</a></li>
+          <li><a href="{% url 'exercise-create' %}">Add Exercise</a></li>
           <li><a href="{% url 'logout' %}">Log out</a></li>
         {% else %}
           <li><a href="{% url 'signup' %}">Sign Up</a></li>
