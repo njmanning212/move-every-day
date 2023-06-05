@@ -11,6 +11,7 @@
   background: white;
   border-radius: 10px;
   margin-bottom: 20px;
+  overflow: hidden;
 }
 
 h1 {
@@ -89,27 +90,6 @@ h1 {
   width: 80%;
   margin: 20px 0px;
   gap: 20px;
-}
-
-.btn {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  min-width: 100px;
-  background-color: var(--light-blue);
-  height: 50px;
-  border: var(--dark-blue) 1px solid;
-  border-radius: 10px;
-  text-decoration: none;
-  font-size: 2rem;
-  color: black;
-}
-
-.btn:hover {
-  background-color: var(--dark-blue);
-  color: white;
-  border: var(--light-blue) 1px solid;
 }
 
 
