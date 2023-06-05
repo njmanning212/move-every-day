@@ -32,3 +32,10 @@ class Exercise(models.Model):
         default=CATEGORIES[0][0]
     )
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
+
+class Photo(models.Model):
+    url = models.CharField(max_length=250)
+    exercise = models.OneToOneField(Exercise, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"Photo for exercise_id: {self.exercise_id} @{self.url}"
