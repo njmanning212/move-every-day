@@ -1,0 +1,50 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 3rem;
+  padding: 10px;
+  margin: 0;
+  text-align: center;
+}
+
+.exercise-container {
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: var(--dark-blue);
+  margin: 10px;
+}
+
+.exercise {
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.thumbnail {
+  height: 192px; width: 288px;
+  border-radius: 20px;
+  border-radius: 10px;
+}
+
+.name {
+  font-size: 2rem;
+  padding: 0;
+  color: var(--dark-blue);
+  font-weight: bold;
+}

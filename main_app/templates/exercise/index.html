@@ -5,17 +5,24 @@
 <link 
   rel="stylesheet"
   type="text/css" 
-  href="">
+  href="{% static 'css/exercises/index.css' %}">
 {% endblock %}
 
 {% block content %}
 
 <h1>Exercise List </h1>
 
-{% for exercise in exercises %}
-  <a href="{% url 'exercise-detail' exercise.id %}">
-    <h2>{{exercise.name}}</h2>
-  </a>
-{% endfor %}
+<section class="container">
+
+  {% for exercise in exercises %}
+    <a class="exercise-container" href="{% url 'exercise-detail' exercise.id %}">
+      <div class="exercise">
+        <img class="thumbnail" src="{% static 'images/no_image.svg' %}" alt="Exercise Thumbnail">
+        <p class="name">{{exercise.name}}</p>
+      </div>
+    </a>
+  {% endfor %}
+</section>
+
 
 {% endblock %}

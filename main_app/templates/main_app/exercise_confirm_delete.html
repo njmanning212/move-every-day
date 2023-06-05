@@ -5,24 +5,26 @@
 <link 
   rel="stylesheet"
   type="text/css" 
-  href="">
+  href="{% static 'css/form.css' %}">
 {% endblock %}
 
 {% block content %}
-
-<div>
-  <h1>Delete Exercise?</h1>
-</div>
-<h2>Are you sure you want to delete {{ exercise.name }}?</h2>
-
-<form action="" method="post" class="form">
-  {% csrf_token %}
-  <a 
-    href="{% url 'exercise-detail' exercise.id %}" 
-  >
-    Cancel
-  </a>
-  <button type="submit">Yes - Delete!</button>
-</form>
+<section class="container">
+  <div>
+    <h1>Are You Sure You Want To Delete This?</h1>
+  </div>
+  <img class ="thumbnail" src="{% static 'images/no_image.svg' %}" alt="Exercise Thumbnail">
+  <p class="name">{{ exercise.name }}</p>
+  
+  <form class="buttons" action="" method="post" class="form">
+    {% csrf_token %}
+    <a class="btn"
+      href="{% url 'exercise-detail' exercise.id %}" 
+    >
+      Cancel
+    </a>
+    <button class="btn delete" type="submit">Yes - Delete!</button>
+  </form>
+</section>
 
 {% endblock %}

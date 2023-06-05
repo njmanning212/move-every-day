@@ -24,6 +24,7 @@ body {
   background-color: var(--dark-blue);
   color: white;
   --dark-blue: rgba(5, 70, 102, 1);
+  --burgundy: rgba(128, 0, 32, 1);
   --blue: rgba(1, 201, 255, 1);
   --light-blue: rgba(228, 238, 244, 1);
 }
@@ -93,5 +94,9 @@ main {
   background-color: var(--dark-blue);
   color: white;
   border: var(--light-blue) 1px solid;
+  cursor: pointer;
 }
 
+.delete:hover {
+  background-color: var(--burgundy);
+}

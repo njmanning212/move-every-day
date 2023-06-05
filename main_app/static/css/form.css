@@ -1,4 +1,4 @@
-.form-container {
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,4 +46,45 @@ label {
 
 .submit:hover {
   cursor: pointer;
+}
+
+h2 {
+  font-size: 3rem;
+  padding: 10px;
+  margin: 0;
+  color: var(--blue);
+  text-align: center;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 1.5rem;
+  padding: 10px;
+  margin: 0;
+  color: var(--dark-blue);
+  text-align: center;
+}
+
+.thumbnail {
+  height: 192px; width: 288px;
+  border-radius: 20px;
+  border-radius: 10px;
+}
+
+.name {
+  font-size: 2rem;
+  padding: 0;
+  color: var(--dark-blue);
+  font-weight: bold;
+  text-align: center;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  margin: 20px 0px;
+  gap: 20px;
 }
