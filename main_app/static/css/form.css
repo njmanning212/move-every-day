@@ -67,8 +67,7 @@ h3 {
 
 .thumbnail {
   height: 192px; width: 288px;
-  border-radius: 20px;
-  border-radius: 10px;
+  border: 1px solid var(--dark-blue);
 }
 
 .name {

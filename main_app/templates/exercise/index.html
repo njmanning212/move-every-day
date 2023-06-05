@@ -48,7 +48,11 @@
   {% for exercise in exercises %}
     <a class="exercise-container" href="{% url 'exercise-detail' exercise.id %}">
       <div class="exercise">
-        <img class="thumbnail" src="{% static 'images/no_image.svg' %}" alt="Exercise Thumbnail">
+        {% if exercise.photo.url %}
+          <img class="thumbnail" src="{{exercise.photo.url}}" alt="Exercise Thumbnail">
+        {% else %}
+          <img class="thumbnail" src="{% static 'images/no_image.svg' %}" alt="Exercise Thumbnail">
+        {% endif %}
         <p class="name">{{exercise.name}}</p>
       </div>
     </a>

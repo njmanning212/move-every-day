@@ -93,6 +93,7 @@ main {
   text-decoration: none;
   font-size: 2rem;
   color: black;
+  box-shadow: 0 0 5px 2px black;
 }
 
 .btn:hover {
@@ -100,8 +101,10 @@ main {
   color: white;
   border: var(--light-blue) 1px solid;
   cursor: pointer;
+  box-shadow: 0 0 5px 2px var(--blue);
 }
 
 .delete:hover {
   background-color: var(--burgundy);
+  box-shadow: 0 0 5px 2px rgb(242, 8, 8);
 }

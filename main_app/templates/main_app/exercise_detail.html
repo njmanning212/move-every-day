@@ -6,14 +6,33 @@
   rel="stylesheet"
   type="text/css" 
   href="{% static 'css/exercises/details.css' %}">
+  <script defer src="{% static 'js/exercise-detail.js' %}"></script>
 {% endblock %}
 
 {% block content %}
 <div class="exercise-container">
   <h1>{{exercise.name}}</h1>
   <a href="{{exercise.url}}">
-    <img class="video" src="{% static 'images/blank_video_thumbnail.svg' %}" alt="">
+      <img class="video" src="{% static 'images/blank_video_thumbnail.svg' %}" alt="">
   </a>
+  <div>
+    {% if object.owner == request.user %}
+      <h3>Change {{ exercise.name }}'s photo</h3>
+      <p id="file-name"></p>
+      <form 
+        action="{% url 'add-photo' exercise.id %}"
+        enctype="multipart/form-data"
+        method="POST"
+      >
+        {% csrf_token %}
+        <label class="btn secondary">
+          Choose photo
+          <input type="file" name="photo-file" id="file-input">
+        </label>
+        <button type="submit" class="btn submit">Upload Photo</button>
+      </form>
+    {% endif %}
+  </div>
   <div class="category">
     <p>Category: {{exercise.get_category_display}}</p>
   </div>

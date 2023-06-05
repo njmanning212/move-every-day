@@ -5,9 +5,13 @@ from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView
 
-from .models import Exercise
+from .models import Exercise, Photo
+import uuid
+import boto3
 
-# Create your views here.
+S3_BASE_URL = 'https://s3.us-east-2.amazonaws.com/'
+BUCKET = 'njman-move-every-day'
+
 
 class Home(LoginView):
   template_name = 'home.html'
@@ -67,3 +71,20 @@ def search(request):
     else:
       exercises = Exercise.objects.filter(name__icontains=search_term, category=category)
   return render(request, 'exercise/index.html', { 'exercises': exercises})
+
+def add_photo(request, exercise_id):
+  photo_file = request.FILES.get('photo-file', None)
+  if photo_file:
+    s3 = boto3.client('s3')
+    key = uuid.uuid4().hex + photo_file.name[photo_file.name.rfind('.'):]
+    try:
+      s3.upload_fileobj(photo_file, BUCKET, key)
+      url = f"{S3_BASE_URL}{BUCKET}/{key}"
+      photo = Photo(url=url, exercise_id=exercise_id)
+      exercise_photo = Photo.objects.filter(exercise_id=exercise_id)
+      if exercise_photo.first():
+        exercise_photo.first().delete()
+      photo.save()
+    except Exception as err:
+      print('An error occurred uploading file to S3: %s' % err)
+  return redirect('exercise-detail', pk=exercise_id)
