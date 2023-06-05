@@ -33,6 +33,21 @@ h1 {
   padding: 0 10px;
 }
 
+.search-btn {
+  width: 20%;
+  max-width: 50px;
+}
+
+.search > input {
+  width: 35%;
+  max-width: 200px;
+}
+
+.search > select {
+  width: 35%;
+  max-width: 150px;
+}
+
 .exercise-container {
   width: 350px;
   display: flex;
