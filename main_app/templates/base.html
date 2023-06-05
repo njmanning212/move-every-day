@@ -24,7 +24,7 @@
     <nav>
       <ul class="nav-links">
         {% if user.is_authenticated %}
-        <div class="link">
+        <div class="logo-link">
           <a href="{% url 'home' %}">
             <img 
               src="{% static 'images/med_logo.png' %}"
@@ -39,11 +39,11 @@
         <div class="link">
           <li><a href="{% url 'exercise-create' %}">Add Exercise</a></li>
         </div>
-        <div class="link logout">
-          <li><a href="{% url 'logout' %}">Log out</a></li>
+        <div class="link">
+          <li><a href="{% url 'logout' %}">Logout</a></li>
         </div>
         {% else %}
-        <div class="link">
+        <div class="logo-link">
           <a href="{% url 'home' %}">
             <img 
               src="{% static 'images/med_logo.png' %}"
@@ -52,11 +52,11 @@
             >
           </a>
         </div>
-        <div class="link logout">          
+        <div class="link ">          
           <li><a href="{% url 'signup' %}">Sign Up</a></li>
         </div>
-        <div class="link logout">          
-          <li><a href="{% url 'home' %}">Log In</a></li>
+        <div class="link">          
+          <li><a href="{% url 'home' %}">Login</a></li>
         </div>
         {% endif %}
       </ul>
