@@ -54,3 +54,16 @@ class ExerciseUpdate(UpdateView):
 class ExerciseDelete(DeleteView):
   model = Exercise
   success_url = '/exercises/'
+
+def search(request):
+  search_term = request.GET.get('search')
+  category = request.GET.get('category')
+  if category == "All Exercises":
+    exercises = Exercise.objects.filter(name__icontains=search_term)
+  else:
+    category = request.GET.get('category')[0]
+    if category == 'M':
+      exercises = Exercise.objects.filter(name__icontains=search_term, owner=request.user)
+    else:
+      exercises = Exercise.objects.filter(name__icontains=search_term, category=category)
+  return render(request, 'exercise/index.html', { 'exercises': exercises})

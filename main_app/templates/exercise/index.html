@@ -12,6 +12,37 @@
 
 <h1>Exercise List </h1>
 
+<form class="search" action="{% url 'exercise-search' %}" method="get">
+  {% csrf_token %}
+  <input 
+    type="text" 
+    value="{{request.GET.search}}"
+    id="search" 
+    name="search" 
+    placeholder="Search">
+  <select name="category">
+    <option value="{{request.GET.category}}">
+      {% if request.GET.category %}
+        {{request.GET.category}}
+      {% else %}
+        Category
+      {% endif %}
+    </option>
+    <option value="All Exercises">All Exercises</option>
+    <option value="My Exercises">My Execises</option>
+    <option value="Cervical">Cervical</option>
+    <option value="Thoracic">Thoracic</option>
+    <option value="Lumbar">Lumbar</option>
+    <option value="Shoulders">Shoulder</option>
+    <option value="Hips">Hips</option>
+    <option value="Knees">Knees</option>
+    <option value="Ankles">Ankles</option>
+    <option value="Feet">Feet</option>
+    <option value="Other">Other</option>
+  </select>
+  <button class="btn search-btn" type="submit">Search</button>
+</form>
+
 <section class="container">
 
   {% for exercise in exercises %}
