@@ -21,13 +21,13 @@
     name="search" 
     placeholder="Search">
   <select name="category">
-    <option value="{{request.GET.category}}">
-      {% if request.GET.category %}
+    {% if request.GET.category %}
+      <option value="{{request.GET.category}}">
         {{request.GET.category}}
-      {% else %}
-        Category
-      {% endif %}
-    </option>
+      </option>
+    {% else %}
+      <option value="All Exercises">All Exercises</option>
+    {% endif %}
     <option value="All Exercises">All Exercises</option>
     <option value="My Exercises">My Execises</option>
     <option value="Cervical">Cervical</option>
