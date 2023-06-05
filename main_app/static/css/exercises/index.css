@@ -57,6 +57,7 @@ h1 {
   text-decoration: none;
   color: var(--dark-blue);
   margin: 10px;
+  text-align: center;
 }
 
 .exercise {
