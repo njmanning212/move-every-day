@@ -15,24 +15,6 @@
   <a href="{{exercise.url}}">
       <img class="video" src="{% static 'images/blank_video_thumbnail.svg' %}" alt="">
   </a>
-  <div>
-    {% if object.owner == request.user %}
-      <h3>Change {{ exercise.name }}'s photo</h3>
-      <p id="file-name"></p>
-      <form 
-        action="{% url 'add-photo' exercise.id %}"
-        enctype="multipart/form-data"
-        method="POST"
-      >
-        {% csrf_token %}
-        <label class="btn secondary">
-          Choose photo
-          <input type="file" name="photo-file" id="file-input">
-        </label>
-        <button type="submit" class="btn submit">Upload Photo</button>
-      </form>
-    {% endif %}
-  </div>
   <div class="category">
     <p>Category: {{exercise.get_category_display}}</p>
   </div>
@@ -66,12 +48,41 @@
     <p class="label">Additional Instructions</p>
     <p>{{exercise.instructions}}</p>
   </div>
+
   <div class="buttons">
     {% if object.owner == request.user %}
       <a class="btn submit" href="{% url 'exercise-update' exercise.id %}">✏️ Edit</a>
       <a class="btn delete" href="{% url 'exercise-delete' exercise.id %}">❌ Delete</a>
     {% endif %}
   </div>
+
+  {% if object.owner == request.user %}
+  <div class="edit-thumbnail">
+    <div class="thumbnail-title">
+      <p>Thumbnail Preview</p>
+    </div>
+    {% if exercise.photo.url %}
+      <img class="thumbnail" src="{{exercise.photo.url}}" alt="Exercise Thumbnail">
+    {% else %}
+      <img class="thumbnail" src="{% static 'images/no_image.svg' %}" alt="Exercise Thumbnail">
+    {% endif %}
+    <h3>Change Thumbnail photo</h3>
+    <form 
+      action="{% url 'add-photo' exercise.id %}"
+      enctype="multipart/form-data"
+      method="POST"
+      class="upload-form"
+    >
+      {% csrf_token %}
+      <label for="file-input">
+        <input type="file" name="photo-file" id="file-input">
+      </label>
+      <button type="submit" class="upload-btn">Upload Photo</button>
+    </form>
+  </div>
+  {% endif %}
+
+
 </div>
 
 {% endblock %}
