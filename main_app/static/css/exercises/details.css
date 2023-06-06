@@ -28,6 +28,12 @@ h1 {
   border-radius: 20px;
 }
 
+.youtube {
+  width: 100px;
+  margin-top: -20px;
+  margin-bottom: -10px;
+}
+
 .category {
   font-size: 2rem;
   margin-top: -10px;

@@ -12,9 +12,14 @@
 {% block content %}
 <div class="exercise-container">
   <h1>{{exercise.name}}</h1>
-  <a href="{{exercise.url}}">
-      <img class="video" src="{% static 'images/blank_video_thumbnail.svg' %}" alt="">
-  </a>
+  <iframe class="video" src="{{exercise.url}}" allowfullscreen>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  </iframe>
+  <div>
+    <a href="{{exercise.url}}" target="_blank">
+      <img class="youtube" src="{% static "images/youtube_logo.png" %}" alt="YouTube logo linking to video on YouTube">
+    </a>
+  </div>
   <div class="category">
     <p>Category: {{exercise.get_category_display}}</p>
   </div>
