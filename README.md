@@ -12,7 +12,7 @@ Currently, **M**ove **E**very **D**ay is an open-source, full-stack Django appli
 
 
 
-## Click **[HERE](https://njmanmoveeveryday.fly.dev/)** to use the app
+## Click **[HERE](https://njman-move-every-day.fly.dev/)** to use the app
 
 ## **Current Features:**
 * Users can create an account, log in, and logout
