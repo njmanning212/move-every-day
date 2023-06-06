@@ -12,14 +12,15 @@
 {% block content %}
 <div class="exercise-container">
   <h1>{{exercise.name}}</h1>
-  <iframe class="video" src="{{exercise.url}}" allowfullscreen>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <iframe 
+  class="video"
+  src="https://www.youtube.com/embed/{{exercise.url}}" 
+  title="YouTube video player" 
+  frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen
+  >
   </iframe>
-  <div>
-    <a href="{{exercise.url}}" target="_blank">
-      <img class="youtube" src="{% static "images/youtube_logo.png" %}" alt="YouTube logo linking to video on YouTube">
-    </a>
-  </div>
   <div class="category">
     <p>Category: {{exercise.get_category_display}}</p>
   </div>
