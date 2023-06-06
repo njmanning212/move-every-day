@@ -48,15 +48,6 @@ label {
   cursor: pointer;
 }
 
-h2 {
-  font-size: 3rem;
-  padding: 10px;
-  margin: 0;
-  color: var(--blue);
-  text-align: center;
-  font-weight: bold;
-}
-
 h3 {
   font-size: 1.5rem;
   padding: 10px;
@@ -86,4 +77,24 @@ h3 {
   width: 80%;
   margin: 20px 0px;
   gap: 20px;
+}
+
+.embed-instructions {
+  padding: 0;
+}
+
+h2 {
+  color: var(--dark-blue);
+  text-align: center;
+  font-size: 2rem;
+  padding-top: 10px;
+}
+
+.embed-instructions > p {
+  font-size: 1.25em;
+  font-weight: bold;
+}
+
+.url {
+  color: var(--burgundy);
 }
