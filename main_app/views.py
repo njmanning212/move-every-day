@@ -4,6 +4,8 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 
 from .models import Exercise, Photo
 import uuid
@@ -30,7 +32,7 @@ def signup(request):
   context = {'form': form, 'error_message': error_message}
   return render(request, 'signup.html', context)
 
-class ExerciseCreate(CreateView):
+class ExerciseCreate(LoginRequiredMixin, CreateView):
   model = Exercise
   fields = ['name', 'url', 'tempo', 'repetitions', 'rest', 'resistance', 'sets', 'fatigue_level', 'instructions', 'category']
 
@@ -41,24 +43,26 @@ class ExerciseCreate(CreateView):
   def get_success_url(self):
     return reverse('exercise-detail', kwargs={'pk': self.object.pk})
 
-class ExerciseDetail(DetailView):
+class ExerciseDetail(LoginRequiredMixin, DetailView):
   model = Exercise
 
+@login_required
 def exercise_index(request):
   exercises = Exercise.objects.all()
   return render(request, 'exercise/index.html', { 'exercises': exercises })
 
-class ExerciseUpdate(UpdateView):
+class ExerciseUpdate(LoginRequiredMixin, UpdateView):
   model = Exercise
   fields = ['name', 'url', 'tempo', 'repetitions', 'rest', 'resistance', 'sets', 'fatigue_level', 'instructions', 'category']
 
   def get_success_url(self):
     return reverse('exercise-detail', kwargs={'pk': self.object.pk})
 
-class ExerciseDelete(DeleteView):
+class ExerciseDelete(LoginRequiredMixin, DeleteView):
   model = Exercise
   success_url = '/exercises/'
 
+@login_required
 def search(request):
   search_term = request.GET.get('search')
   category = request.GET.get('category')
@@ -72,6 +76,7 @@ def search(request):
       exercises = Exercise.objects.filter(name__icontains=search_term, category=category)
   return render(request, 'exercise/index.html', { 'exercises': exercises})
 
+@login_required
 def add_photo(request, exercise_id):
   photo_file = request.FILES.get('photo-file', None)
   if photo_file:
