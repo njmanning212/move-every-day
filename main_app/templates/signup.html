@@ -5,23 +5,30 @@
 <link 
   rel="stylesheet"
   type="text/css" 
-  href="{% static 'css/form.css' %}">
+  href="{% static 'css/signup.css' %}">
 {% endblock %}
 
 {% block content %}
 
-<div class="page-header">
-  <h1>Sign Up</h1>
-</div>
-{% if error_message %}
-  <p>{{ error_message }}</p>
-{% endif %}
-<form action="" method="post" autocomplete="off">
-  {% csrf_token %}
-  <table>
-    {{ form.as_table }}
-  </table>
-  <button type="submit">Submit!</button>
-</form>
+<section class="container">
+  <div>
+    <h1>Sign Up</h1>
+  </div>
+  {% if error_message %}
+    <p class="error">{{ error_message }}</p>
+  {% endif %}
+  <form 
+    action="" 
+    method="post" 
+    autocomplete="off"
+    class="signup-form"
+  >
+    {% csrf_token %}
+    <table> 
+      {{ form.as_table }}
+    </table>
+    <button class="btn submit" type="submit">Sign Up!</button>
+  </form>
+</section>
 
 {% endblock %}
