@@ -8,7 +8,7 @@ Movement is one of the most potent tools for improving mental and physical healt
 
 **M**ove **E**very **D**ay is based on movements used by Physical Therapists every day in their practice through Home Exercises Programs (HEPs)to help people relieve their pain and get back to full participation in their lives.
 
-Currently, **M**ove **E**very **D**ay is an open-source, full-stack Django application that helps user store exercises, based on youtube videos, to make it easier to find and perform them again and again. Future plans involve creating a program/workout feature that allows for unique collections of these exercises to be created and shared with others. The end goal is to help Doctors of Physical Therapy, personal trainers, or anyone else who wants to help others move better, create and share programs with their patients and clients.
+Currently, **M**ove **E**very **D**ay is a full-stack Django application utilizing a PostgreSQL database that helps user store exercises, based on youtube videos, to make it easier to find and perform them again and again. Future plans involve creating a program/workout feature that allows for unique collections of these exercises to be created and shared with others. The end goal is to help Doctors of Physical Therapy, personal trainers, or anyone else who wants to help others move better, create and share programs with their patients and clients.
 
 
 
@@ -32,9 +32,10 @@ Currently, **M**ove **E**very **D**ay is an open-source, full-stack Django appli
 * Python
 * Boto3
 * AWS S3
+* Docker
+* Bit.io
 * Pyscopg2
 * Fly.io
-* Docker
 * JavaScript
 * HTML
 * CSS
