@@ -35,6 +35,9 @@ Currently, **M**ove **E**very **D**ay is a full-stack Django application utilizi
 * Docker
 * Bit.io
 * Pyscopg2
+* Gunicorn
+* Whitenoise
+* Django-Environ
 * Fly.io
 * JavaScript
 * HTML
