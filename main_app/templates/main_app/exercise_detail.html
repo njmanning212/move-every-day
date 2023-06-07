@@ -10,15 +10,16 @@
 {% endblock %}
 
 {% block content %}
+
 <div class="exercise-container">
   <h1>{{exercise.name}}</h1>
   <iframe 
-  class="video"
-  src="https://www.youtube.com/embed/{{exercise.url}}" 
-  title="YouTube video player" 
-  frameborder="0" 
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-  allowfullscreen
+    class="video"
+    src="https://www.youtube.com/embed/{{exercise.url}}" 
+    title="YouTube video player" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen
   >
   </iframe>
   <div class="category">
@@ -63,29 +64,29 @@
   </div>
 
   {% if object.owner == request.user %}
-  <div class="edit-thumbnail">
-    <div class="thumbnail-title">
-      <p>Thumbnail Preview</p>
+    <div class="edit-thumbnail">
+      <div class="thumbnail-title">
+        <p>Thumbnail Preview</p>
+      </div>
+      {% if exercise.photo.url %}
+        <img class="thumbnail" src="{{exercise.photo.url}}" alt="Exercise Thumbnail">
+      {% else %}
+        <img class="thumbnail" src="{% static 'images/no_image.svg' %}" alt="Exercise Thumbnail">
+      {% endif %}
+      <h3>Change Thumbnail photo</h3>
+      <form 
+        action="{% url 'add-photo' exercise.id %}"
+        enctype="multipart/form-data"
+        method="POST"
+        class="upload-form"
+      >
+        {% csrf_token %}
+        <label for="file-input">
+          <input type="file" name="photo-file" id="file-input">
+        </label>
+        <button type="submit" class="upload-btn">Upload Photo</button>
+      </form>
     </div>
-    {% if exercise.photo.url %}
-      <img class="thumbnail" src="{{exercise.photo.url}}" alt="Exercise Thumbnail">
-    {% else %}
-      <img class="thumbnail" src="{% static 'images/no_image.svg' %}" alt="Exercise Thumbnail">
-    {% endif %}
-    <h3>Change Thumbnail photo</h3>
-    <form 
-      action="{% url 'add-photo' exercise.id %}"
-      enctype="multipart/form-data"
-      method="POST"
-      class="upload-form"
-    >
-      {% csrf_token %}
-      <label for="file-input">
-        <input type="file" name="photo-file" id="file-input">
-      </label>
-      <button type="submit" class="upload-btn">Upload Photo</button>
-    </form>
-  </div>
   {% endif %}
 
 
