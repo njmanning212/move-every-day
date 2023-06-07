@@ -39,6 +39,8 @@ Currently, **M**ove **E**very **D**ay is a full-stack Django application utilizi
 * Whitenoise
 * Django-Environ
 * Fly.io
+* Git
+* GitHub
 * JavaScript
 * HTML
 * CSS
