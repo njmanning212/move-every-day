@@ -11,7 +11,6 @@
 {% block content %}
 
 <h1>Exercise List </h1>
-
 <form class="search" action="{% url 'exercise-search' %}" method="get">
   {% csrf_token %}
   <input 
@@ -42,9 +41,7 @@
   </select>
   <button class="btn search-btn" type="submit">Search</button>
 </form>
-
 <section class="container">
-
   {% for exercise in exercises %}
     <a class="exercise-container" href="{% url 'exercise-detail' exercise.id %}">
       <div class="exercise">
@@ -57,7 +54,6 @@
       </div>
     </a>
   {% endfor %}
-  
 </section>
 
 

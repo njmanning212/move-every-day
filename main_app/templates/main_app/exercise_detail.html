@@ -55,14 +55,12 @@
     <p class="label">Additional Instructions</p>
     <p>{{exercise.instructions}}</p>
   </div>
-
   <div class="buttons">
     {% if object.owner == request.user %}
       <a class="btn submit" href="{% url 'exercise-update' exercise.id %}">✏️ Edit</a>
       <a class="btn delete" href="{% url 'exercise-delete' exercise.id %}">❌ Delete</a>
     {% endif %}
   </div>
-
   {% if object.owner == request.user %}
     <div class="edit-thumbnail">
       <div class="thumbnail-title">
@@ -88,8 +86,6 @@
       </form>
     </div>
   {% endif %}
-
-
 </div>
 
 {% endblock %}

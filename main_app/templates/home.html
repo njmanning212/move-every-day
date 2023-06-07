@@ -9,13 +9,13 @@
 {% endblock %}
 
 {% block content %}
+
 <section class="home">
   <section class="greeting">
     <p>Movement is Medicine</p>
     <p>Take Your <span class="focus">MED</span>s</p>
     <h1><span class="focus">M</span>ove <span class="focus">E</span>very <span class="focus">D</span>ay</h1>
   </section>
-  
   {% if not user.is_authenticated %}
     <form class="login-form" action="{% url 'home' %}" method="post" class="login">
       {% csrf_token %}
@@ -24,8 +24,7 @@
       <button type="submit" class="btn">Login</button>
     </form>
   {% endif %}
-  <img class="home-logo" src="{% static 'images/med_logo.png' %}" alt="Move Every Day Logo">
-    
+  <img class="home-logo" src="{% static 'images/med_logo.png' %}" alt="Move Every Day Logo">  
 </section>
 
 {% endblock %}
