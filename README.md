@@ -33,7 +33,7 @@ Currently, **M**ove **E**very **D**ay is a full-stack Django application utilizi
 * Boto3
 * AWS S3
 * Docker
-* Bit.io
+* Supabase
 * Pyscopg2
 * Gunicorn
 * Whitenoise
